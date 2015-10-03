@@ -1,0 +1,32 @@
+#/bin/bash
+
+STATE=$(amixer get Master | grep "Front Left:" | grep -o "\[off\]")
+
+case "$1" in
+    "up")
+      amixer set -q Master 2%+
+      if [[ -n $STATE ]]; then
+        amixer set -q Master toggle
+      fi
+      ;;
+    "down")
+      amixer set -q Master 2%-
+      if [[ -n $STATE ]]; then
+        amixer set -q Master toggle
+      fi
+      ;;
+    "mute")
+      amixer set -q Master toggle
+      ;;
+esac
+
+VOLUME=$(amixer get Master | grep "Front Left:" | cut -d ' ' -f 7 | egrep -o '[0-9].')
+STATE=$(amixer get Master | grep "Front Left:" | grep -o "\[off\]")
+
+if [[ -n $STATE ]]; then
+  volnoti-show -m
+else
+  volnoti-show $VOLUME
+fi
+
+exit 0
