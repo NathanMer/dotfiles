@@ -144,6 +144,14 @@ client.urgent           #002b46 #002b36 #dc322f #b58900
 
 client.background #002b36
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+bindsym $mod+plus [class="Vlc"] scratchpad show
+
+bindsym $mod+bracketleft [class="Hexchat"] scratchpad show
+
+bindsym $mod+bracketright resize shrink height 10000px; resize shrink width 10000px; resize grow width 1026px; resize grow height 768px; move position 170px 0px
+
 #borders
 hide_edge_borders both
 
