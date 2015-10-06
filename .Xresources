@@ -52,6 +52,7 @@
 *pointerColorBackground: S_base01
 *pointerColorForeground: S_base1
 *font: xft:Anonymous Pro for Powerline:size=13:antialias=true:hinting=true
+ursvt*urgentOnBell: true
 !*boldfont: xft:Sauce Code Powerline:style=Bold:size=13
 !*letterSpace: -2
 
@@ -71,3 +72,4 @@
 *color13: S_violet
 *color14: S_base1
 *color15: S_base3
+

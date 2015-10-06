@@ -125,17 +125,32 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-        status_command i3status
+    status_command i3status
+    colors {
+        background #002b36
+        statusline #839496
+        separator #b58900
+        focused_workspace #073642 #073642 #b58900
+        inactive_workspace #002b36 #002b36 #839496
+        urgent_workspace #dc322f #002b36 #dc322f
+    }
 }
+
+#colors                 border  backgnd text    indicator - not used cause no borders
+client.focused          #073642 #073642 #b58900 #b58900
+client.focused_inactive #073642 #073642 #b58900 #b58900
+client.unfocused        #002b36 #002b36 #839496 #b58900
+client.urgent           #002b46 #002b36 #dc322f #b58900
+
+client.background #002b36
 
 #borders
 hide_edge_borders both
 
-bindsym $mod+g border normal 0
+new_window normal 0
 
 # to find window class:
-# xprop | grep -i 'class'
-for_window [class="URxvt"] border normal 0
+# xprop WM_CLASS
 for_window [class="Firefox"] border none
 
 # Use keyboard volume change buttons to change volume with nice popup
