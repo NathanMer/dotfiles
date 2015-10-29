@@ -2,8 +2,10 @@
 
 xset dpms 0 0 0
 xset s 0
+xautolock -disable
 
 read -n 1 -s
 
 xset dpms 0 0 300
 xset s 0
+xautolock -enable

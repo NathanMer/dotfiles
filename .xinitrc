@@ -18,6 +18,9 @@ xcompmgr &
 setxkbmap -option compose:ralt
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
+xset dpms 0 0 300
+xset s 0
+
 # exec gnome-session
 # exec startkde
 # exec startxfce4
