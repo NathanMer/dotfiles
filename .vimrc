@@ -1,11 +1,3 @@
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-" Authors: http://vim.wikia.com/wiki/Vim_on_Freenode
-" Description: A minimal, but feature rich, example .vimrc. If you are a
-"              newbie, basing your first .vimrc on this file is a good choice.
-"              If you're a more advanced user, building your own .vimrc based
-"              on this file is still a good idea.
-
-"------------------------------------------------------------
 " Features {{{1
 "
 " These options and commands enable some very useful features in Vim, that
@@ -157,6 +149,8 @@ map Y y$
 " next search
 nnoremap <C-L> :nohl<CR><C-L>
 
+let mapleader = ","
+
 "------------------------------------------------------------
 "Vundle Stuff
 
@@ -171,6 +165,7 @@ Plugin 'bling/vim-airline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'vim-scripts/a.vim'
 Plugin 'wting/rust.vim'
+Plugin 'scrooloose/nerdcommenter'
 
 " After plugins
 call vundle#end()
@@ -201,6 +196,7 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Spell check
 au BufNewFile,BufRead *.tex set spell spelllang=en_us
+au BufNewFile,BufRead COMMIT_EDITMSG set spell spelllang=en_us
 
 " LaTeX (rubber) macro
 nnoremap <leader>t :w<CR>:!rubber --pdf --warn all %<CR>
@@ -211,3 +207,9 @@ let g:tex_flavor="latex"
 
 "get root in editor
 cmap wsudo w !sudo tee >/dev/null %
+
+"keep cursor from hitting the edge of the screen
+set scrolloff=5
+
+"add verticle line
+set colorcolumn=80
