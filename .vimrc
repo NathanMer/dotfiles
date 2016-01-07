@@ -167,6 +167,7 @@ Plugin 'vim-scripts/a.vim'
 Plugin 'wting/rust.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
 
 " After plugins
 call vundle#end()
