@@ -168,6 +168,7 @@ Plugin 'wting/rust.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
 
 " After plugins
 call vundle#end()
@@ -249,3 +250,19 @@ nmap <silent> <Leader>en  <Plug>LocationNext
 
 "More bindings
 nmap <Leader>s :w<CR>
+
+"EasyMotion
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+"Bi-directional find motion
+"
+"
+""EasyMotionlet g:EasyMotion_do_mapping = 0 " Disable default mappings
+"Bi-directional find motion
+nmap <Leader>g <Plug>(easymotion-s)
+
+"Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
