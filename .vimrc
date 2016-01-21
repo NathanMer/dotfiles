@@ -21,6 +21,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-repeat'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'Raimondi/delimitMate'
 
 " After plugins
 call vundle#end()
