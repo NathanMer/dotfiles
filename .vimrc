@@ -22,6 +22,7 @@ set showcmd
 " Highlight searches (use <C-L> to temporarily turn off highlighting; see the
 " mapping of <C-L> below)
 set hlsearch
+set incsearch
 
 " Modelines have historically been a source of security vulnerabilities. As
 " such, it may be a good idea to disable them and use the securemodelines
@@ -110,6 +111,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-surround'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-repeat'
 
 " After plugins
 call vundle#end()
@@ -149,11 +151,13 @@ let g:airline_powerline_fonts = 1
 "-------------------------------------------------------------------------------
 " YouCompleteMe
 let g:ycm_autoclose_preview_window_after_completion = 1
+nmap <Leader>g :YcmCompleter GoTo<Return>
 
 "-------------------------------------------------------------------------------
 " Rust.vim and other rust stuff
 "Get rust syntax highlighting
 au BufNewFile,BufRead *.rs set filetype=rust
+let g:ycm_rust_src_path = '/usr/local/rust/rustc-1.5.0/src'
 
 "-------------------------------------------------------------------------------
 " Syntastic
@@ -193,7 +197,7 @@ nmap <silent> <Leader>en  <Plug>LocationNext
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 " Bi-directional find motion
-nmap <Leader>g <Plug>(easymotion-s)
+nmap <Leader>m <Plug>(easymotion-s)
 
 "Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
