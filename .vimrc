@@ -1,11 +1,42 @@
+"------------------------------------------------------------
+"Vundle Stuff
+
+filetype off " required for vundle - changed later
+
+" Set up stuff:
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
+
+" Call plugins
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'vim-scripts/a.vim'
+Plugin 'wting/rust.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-surround'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-repeat'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+
+" After plugins
+call vundle#end()
+
+"-------------------------------------------------------------------------------
+" Basics
+
 " Set 'nocompatible' to ward off unexpected things that your distro might
+"
 " have made, as well as sanely reset options when re-sourcing .vimrc
 set nocompatible
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
-filetype off " required for vundle - changed later
+filetype plugin indent on
 
 " Enable syntax highlighting
 syntax on
@@ -92,30 +123,6 @@ set expandtab
 set list
 set lcs=tab:»·
 set lcs+=trail:·
-
-"------------------------------------------------------------
-"Vundle Stuff
-
-" Set up stuff:
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-
-" Call plugins
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'vim-scripts/a.vim'
-Plugin 'wting/rust.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/syntastic'
-Plugin 'tpope/vim-surround'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-repeat'
-
-" After plugins
-call vundle#end()
-filetype plugin indent on
 
 "------------------------------------------------------------
 " Mappings {{{1
@@ -205,6 +212,45 @@ let g:EasyMotion_smartcase = 1
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+
+"-------------------------------------------------------------------------------
+" UltiSnips
+
+function! g:UltiSnips_Complete()
+  call UltiSnips#ExpandSnippet()
+  if g:ulti_expand_res == 0
+    if pumvisible()
+      return "\<C-n>"
+    else
+      call UltiSnips#JumpForwards()
+      if g:ulti_jump_forwards_res == 0
+        return "\<TAB>"
+      endif
+    endif
+  endif
+  return ""
+endfunction
+
+function! g:UltiSnips_Reverse()
+  call UltiSnips#JumpBackwards()
+  if g:ulti_jump_backwards_res == 0
+    return "\<C-P>"
+  endif
+
+  return ""
+endfunction
+
+
+if !exists("g:UltiSnipsJumpForwardTrigger")
+  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+endif
+
+if !exists("g:UltiSnipsJumpBackwardTrigger")
+  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+endif
+
+au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
+au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
 "-------------------------------------------------------------------------------
 " Other stuff of mine
