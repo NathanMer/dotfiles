@@ -58,7 +58,7 @@ URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 !*boldfont: xft:Sauce Code Powerline:style=Bold:size=13
-*letterSpace: -1
+*letterSpace: 0
 
 *color0: S_base02
 *color1: S_red
