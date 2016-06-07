@@ -21,7 +21,7 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-repeat'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
-Plugin 'Raimondi/delimitMate'
+"Plugin 'Raimondi/delimitMate'
 
 " After plugins
 call vundle#end()
@@ -199,6 +199,8 @@ nnoremap <silent> <Plug>LocationNext        :<C-u>exe 'call <SID>LocationNext()'
 nmap <silent> <Leader>ep  <Plug>LocationPrevious
 nmap <silent> <Leader>en  <Plug>LocationNext
 
+let g:syntastic_python_python_exec = '/usr/bin/python2'
+
 "-------------------------------------------------------------------------------
 " EasyMotion
 
@@ -259,6 +261,7 @@ au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger 
 " Spell check
 au BufNewFile,BufRead *.tex set spell spelllang=en_us
 au BufNewFile,BufRead COMMIT_EDITMSG set spell spelllang=en_us
+set spell spelllang=en_us
 
 " LaTeX (rubber) macro
 nnoremap <leader>t :w<CR>:!rubber --pdf --warn all %<CR>
