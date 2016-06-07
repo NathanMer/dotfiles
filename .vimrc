@@ -22,6 +22,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 "Plugin 'Raimondi/delimitMate'
+Plugin 'vim-airline/vim-airline-themes'
 
 " After plugins
 call vundle#end()
