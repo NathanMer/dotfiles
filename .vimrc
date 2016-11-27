@@ -150,6 +150,8 @@ cmap wsudo w !sudo tee >/dev/null %
 " An easier way to save
 nmap <Leader>s :w<CR>
 
+nmap <Leader>r :! pdflatex %<CR>
+
 "-------------------------------------------------------------------------------
 " Themes, Colors, and Fonts
 set background=dark
