@@ -273,5 +273,5 @@ let g:tex_flavor="latex"
 " keep cursor from hitting the edge of the screen
 set scrolloff=5
 
-" add verticle line
+" add vertical line
 set colorcolumn=80
