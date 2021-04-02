@@ -264,6 +264,7 @@ au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger 
 " Spell check
 au BufNewFile,BufRead *.tex set spell spelllang=en_us
 au BufNewFile,BufRead COMMIT_EDITMSG set spell spelllang=en_us
+au BufNewFile,BufRead *.m set nospell
 set spell spelllang=en_us
 
 " LaTeX (rubber) macro
